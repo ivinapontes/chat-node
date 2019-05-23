@@ -22,6 +22,21 @@ app.get('/', function(request, response) {
 });
 
 
+app.get("/messages", function(request, response){
+  response.json(messages);
+});
+
+app.post("/messages", function(request, response){
+  const message = request.body;
+  console.log(messages);
+  // let id = message.id;
+  // id = welcomeMessage.length+1;
+  // welcomeMessage.push(message);
+  // response.status(201).json(welcomeMessage);
+});
+
+
+// app.delete("/quotes/:id", function )
 
 
 

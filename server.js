@@ -26,12 +26,10 @@ app.get("/messages", function(request, response){
 
 app.post("/messages", function(request, response){
   const message = request.body;
-
-  let id = message.id;
-  id = welcomeMessage.length+1;
-  
-  welcomeMessage.push(message);
-  response.status(201).json(welcomeMessage);
+  let id = messages.id;
+  id = messages.length+1;
+  messages.push(message);
+  response.status(201).json(messages);
 });
 
 /*

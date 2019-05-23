@@ -32,16 +32,12 @@ app.post("/messages", function(request, response){
   response.status(201).json(messages);
 });
 
-/*
- const quote = request.body;
-  console.log(quote);
-  let id = quotes.id;
-  id = quotes.length+1;
-  quotes.push(quote);
-  response.status(201).json(quotes);
+app.get("/messages/:id?", function(request, response){
+  const id = request.params.id;
+  // console.log(id)
+  const message = messages.filter(message => message.id == id);
+  
+  response.json(message);
+});
 // app.delete("/quotes/:id", function )
-*/
-
-
-
 app.listen(process.env.PORT);

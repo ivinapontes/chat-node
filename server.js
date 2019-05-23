@@ -7,11 +7,7 @@ app.use(cors());
 app.use(express.urlencoded({ extended: false }))
 
 
-const welcomeMessage = {
-  id: 0,
-  from: "Bart",
-  text: "Welcome to CYF chat system!"
-}
+const welcomeMessage = require("./messages.json");
 
 //This array is our "data store".
 //We will start with one message in the array.
@@ -30,17 +26,23 @@ app.get("/messages", function(request, response){
 
 app.post("/messages", function(request, response){
   const message = request.body;
-  console.log(messages);
+
   let id = message.id;
-  console.log(id)
   id = welcomeMessage.length+1;
-  // welcomeMessage.push(message);
-  // response.status(201).json(welcomeMessage);
+  
+  welcomeMessage.push(message);
+  response.status(201).json(welcomeMessage);
 });
 
-
+/*
+ const quote = request.body;
+  console.log(quote);
+  let id = quotes.id;
+  id = quotes.length+1;
+  quotes.push(quote);
+  response.status(201).json(quotes);
 // app.delete("/quotes/:id", function )
-
+*/
 
 
 

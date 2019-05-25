@@ -39,5 +39,12 @@ app.get("/messages/:id?", function(request, response){
   
   response.json(message);
 });
-// app.delete("/quotes/:id", function )
+
+
+app.delete("/messages/delete/:id?", function(request, response) {
+  const id = request.params.id
+  
+  response.send(messages);
+})
+
 app.listen(process.env.PORT);

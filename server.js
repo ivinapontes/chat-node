@@ -60,7 +60,7 @@ app.delete("/delete/:id?", function (req, res) {
   let id = req.params.id;
   let mainArray = messages;
   let filteredArray; 
-  var findMessageById = mainArray.find(message => message.id == id);
+  var findMessageById = mainArray.filter(message => message.id = id);
   
   if (findMessageById){
     console.log(findMessageById)

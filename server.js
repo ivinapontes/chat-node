@@ -58,10 +58,15 @@ app.get("/messages/:id?", function(request, response){
 app.delete('/delete/:id?', function (req, res) {
   let id = req.params.id;
   
-  var message = welcomeMessage.find(message => message.id == id);
-  if (message){
-    delete message.then( res.json(welcomeMessage)
-  }
+  var findMessageById = welcomeMessage.find(message => message.id == id);
+  if (findMessageById){
+    let filteredArray = welcomeMessage.filter(message => message.id != findMessageById);
+    res.status(204).json(filteredArray)  
+    console.log(filteredArray)
+    } else {
+      res.status(404).json(messages)
+    }
+  
  
 })
 

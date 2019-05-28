@@ -25,7 +25,7 @@ app.get("/messages", function(request, response){
 });
 
 app.post("/messages", function(request, response){
-  const message = request.body;
+  let message = request.body;
   let id = messages.id;
   id = messages.length+1;
   messages.push(message);
@@ -33,9 +33,9 @@ app.post("/messages", function(request, response){
 });
 
 app.get("/messages/:id?", function(request, response){
-  const id = request.params.id;
+  let id = request.params.id;
   // console.log(id)
-  const message = welcomeMessage.filter(message => message.id == id);
+  let message = welcomeMessage.filter(message => message.id == id);
   
   response.json(message);
 });

@@ -41,19 +41,23 @@ app.get("/messages/:id?", function(request, response){
 });
 
 
-app.delete("/messages/delete/:id?", function(request, response){
-  let selectedId = request.params.id;
-  console.log(selectedId)
-  
-//   let found = messages.filter(message=>message.id == selectedId);
+// app.delete("/messages/delete/:id?", function(request, response){
+//   let selectedId = request.params.id;
+//   console.log(selectedId)
+//   response.json(messages)
+//   let found = messages.find(message=>message.id == selectedId);
 //     console.log(found);
   
 //   if (found){
-//     messages = messages.find(message=>message.id != selectedId);
+//     messages = messages.filter(message=>message.id != selectedId);
 //     response.status(204).json(messages)  
 //     } else {
 //       response.status(404).json(messages)
 //     }
+// })
+app.delete('/delete/:id?', function (req, res) {
+  let id = request.params.id;
+  res.send()
 })
 
 app.listen(process.env.PORT);

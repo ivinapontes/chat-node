@@ -56,8 +56,13 @@ app.get("/messages/:id?", function(request, response){
 //     }
 // })
 app.delete('/delete/:id?', function (req, res) {
-  let id = request.params.id;
-  res.send()
+  let id = req.params.id;
+  
+  var message = welcomeMessage.find(message => message.id == id);
+  if (message){
+    delete message.then( res.json(welcomeMessage)
+  }
+ 
 })
 
 app.listen(process.env.PORT);

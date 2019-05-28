@@ -41,37 +41,37 @@ app.get("/messages/:id?", function(request, response){
 });
 
 
-app.delete("/messages/delete/:id?", function(request, response){
-  let selectedId = request.params.id;
-  console.log(selectedId)
-  response.json(welcomeMessage)
-  let found = welcomeMessage.find(message=>message.id == selectedId);
-    console.log(found);
+// app.delete("/messages/delete/:id?", function(request, response){
+//   let selectedId = request.params.id;
+//   console.log(selectedId)
+//   response.json(welcomeMessage)
+//   let found = welcomeMessage.find(message=>message.id == selectedId);
+//     console.log(found);
   
-  if (found){
-    messages = welcomeMessage.filter(message=>message.id != selectedId);
-    response.status(204).json(messages)  
-    } else {
-      response.status(404).json(welcomeMessage)
-    }
-})
-
-// app.delete('/delete/:id?', function (req, res) {
-//   let id = req.params.id;
-//   let filteredArray;
-  
-//   var findMessageById = welcomeMessage.find(message => message.id == id);
-  
-//   if (findMessageById){
-//     console.log(findMessageById)
-//     filteredArray = welcomeMessage.filter(message => message.id != findMessageById);
-//     res.json(filteredArray)  
-//     // console.log(filteredArray)
+//   if (found){
+//     messages = welcomeMessage.filter(message=>message.id != selectedId);
+//     response.status(204).json(messages)  
 //     } else {
-//       res.status(404).json(messages)
+//       response.status(404).json(welcomeMessage)
 //     }
+// })
+
+app.delete("/delete/:id?", function (req, res) {
+  let id = req.params.id;
+  let mainArray = messages;
+  let filteredArray; 
+  var findMessageById = mainArray.find(message => message.id == id);
+  
+  if (findMessageById){
+    console.log(findMessageById)
+    filteredArray = mainArray.filter(message => message.id != findMessageById);
+    res.json(filteredArray)  
+    // console.log(filteredArray)
+    } else {
+      res.status(404).json(messages)
+    }
   
  
-// })
+})
 
 app.listen(process.env.PORT);

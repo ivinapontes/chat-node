@@ -44,15 +44,15 @@ app.get("/messages/:id?", function(request, response){
 app.delete("/messages/delete/:id?", function(request, response){
   let selectedId = request.params.id;
   console.log(selectedId)
-  response.json(messages)
-  let found = messages.find(message=>message.id == selectedId);
+  response.json(welcomeMessage)
+  let found = welcomeMessage.find(message=>message.id == selectedId);
     console.log(found);
   
   if (found){
-    messages = messages.filter(message=>message.id != selectedId);
+    messages = welcomeMessage.filter(message=>message.id != selectedId);
     response.status(204).json(messages)  
     } else {
-      response.status(404).json(messages)
+      response.status(404).json(welcomeMessage)
     }
 })
 

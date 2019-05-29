@@ -29,9 +29,15 @@ app.post("/messages", function(request, response){
   let message = request.body;
   let id = messages.id;
   id = messages.length+1;
-  if(!messa)
+  if (!message.text || !message.from){
+    response.status(400).send('missing text or name')
+  }else{
+   
+  console.log(message.text)
+  console.log(message.from)
   messages.push(message);
-  response.status(201).json(messages);
+  response.status(201).json(messages); 
+  }
 });
 
 app.get("/messages/:id?", function(request, response){

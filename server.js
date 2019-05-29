@@ -52,16 +52,23 @@ app.delete("/delete/:id?", function (req, res) {
   res.json(findMessageByIdAndFilter)
 })
 
-// app.get("/quotes/search", function(request, response) {
-//   let term = request.query.term;  
-  
-//   response.send(findingWords(term));
-// });
 
-// function findingWords(term){
-//   let loweredCasedWord = term.toLowerCase();
-//   return quotes.filter(quote => quote.quote.toLowerCase().includes(loweredCasedWord));
-// }
+
+// For this level your API must also allow a client to:
+
+// Read only messages whose text contains a given substring: /messages/search?text=express
+// Read only the most recent 10 messages: /messages/latest
+
+
+app.get("/message/search", function(request, response) {
+  let term = request.query.term;  
+  response.send(findingWords(term));
+});
+
+function findingWords(term){
+  let loweredCasedWord = term.toLowerCase();
+  return welcomeMessage.filter(message => message.from.toLowerCase().includes(loweredCasedWord));
+}
 
 
 

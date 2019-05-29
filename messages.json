@@ -1,31 +1,56 @@
 [
   {
-    "text": "Here's my chat",
+    "text": "Welcome to my chat",
     "from": "Ivina",
     "id": 0
   },
   {
-    "text": "Here's my chat",
+    "text": "Thank you! How are you",
     "from": "Jinkx",
     "id": 1
   },
   {
-    "text": "Here's my chat",
-    "from": "Jinkx",
+    "text": "Not too bad, really. how are you?",
+    "from": "Ivina",
     "id": 2
   },
   {
-    "text": "Here's my chat",
-    "from": "Jinkx",
+    "text": "Have you eaten?",
+    "from": "Ivina",
     "id": 3
   },
   {
-    "text": "Here's my chat",
+    "text": "No! you've forgotten to fill up my pot!",
     "from": "Jinkx",
     "id": 4
   },
   {
-    "text": "Here's my chat",
+    "text": "and even didn't give me tap water!",
+    "from": "Jinkx",
+    "id": 5
+  },
+  {
+    "text": "and even didn't give me tap water!",
+    "from": "Jinkx",
+    "id": 5
+  },
+  {
+    "text": "and even didn't give me tap water!",
+    "from": "Jinkx",
+    "id": 5
+  },
+  {
+    "text": "and even didn't give me tap water!",
+    "from": "Jinkx",
+    "id": 5
+  },
+  {
+    "text": "and even didn't give me tap water!",
+    "from": "Jinkx",
+    "id": 5
+  },
+  {
+    "text": "and even didn't give me tap water!",
     "from": "Jinkx",
     "id": 5
   }

@@ -28,6 +28,7 @@ app.post("/messages", function(request, response){
   let message = request.body;
   let id = messages.id;
   id = messages.length+1;
+  if(!messa)
   messages.push(message);
   response.status(201).json(messages);
 });

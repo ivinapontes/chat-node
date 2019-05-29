@@ -52,6 +52,16 @@ app.delete("/delete/:id?", function (req, res) {
   res.json(findMessageByIdAndFilter)
 })
 
+// app.get("/quotes/search", function(request, response) {
+//   let term = request.query.term;  
+  
+//   response.send(findingWords(term));
+// });
+
+// function findingWords(term){
+//   let loweredCasedWord = term.toLowerCase();
+//   return quotes.filter(quote => quote.quote.toLowerCase().includes(loweredCasedWord));
+// }
 
 
 

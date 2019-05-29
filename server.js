@@ -1,5 +1,6 @@
 const express = require("express");
-const cors = require('cors')
+const cors = require('cors');
+const { check } = require('express-validator/check');
 
 const app = express();
 

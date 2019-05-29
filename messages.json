@@ -30,28 +30,38 @@
     "id": 5
   },
   {
-    "text": "and even didn't give me tap water!",
-    "from": "Jinkx",
-    "id": 5
+    "text": "Ok! I'm on my way home",
+    "from": "Ivina",
+    "id": 6
   },
   {
-    "text": "and even didn't give me tap water!",
-    "from": "Jinkx",
-    "id": 5
+    "text": "do you want whiskas sachet?",
+    "from": "Ivina",
+    "id": 7
   },
   {
-    "text": "and even didn't give me tap water!",
+    "text": "nah!",
     "from": "Jinkx",
-    "id": 5
+    "id": 8
   },
   {
-    "text": "and even didn't give me tap water!",
-    "from": "Jinkx",
-    "id": 5
+    "text": "what about a new paper ball?",
+    "from": "Ivina",
+    "id": 9
   },
   {
-    "text": "and even didn't give me tap water!",
+    "text": "nah!",
     "from": "Jinkx",
-    "id": 5
+    "id": 10
+  },
+  {
+    "text": "ok! I'll rub your belly, then",
+    "from": "Ivina",
+    "id": 11
+  },
+  {
+    "text": "Sounds good.",
+    "from": "Jinkx",
+    "id": 12
   }
 ]

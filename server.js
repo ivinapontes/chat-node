@@ -67,7 +67,7 @@ app.get("/message/search", function(request, response) {
 
 function findingWords(term){
   let loweredCasedWord = term.toLowerCase();
-  return welcomeMessage.filter(message => message.from.toLowerCase().includes(loweredCasedWord));
+  return welcomeMessage.filter(message => message.text.toLowerCase().includes(loweredCasedWord));
 }
 
 

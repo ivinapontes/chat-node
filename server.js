@@ -13,7 +13,7 @@ const welcomeMessage = require("./messages.json");
 //This array is our "data store".
 //We will start with one message in the array.
 //Note: messages will be lost when Glitch restarts our server.
-const messages = [welcomeMessage]
+const messages = welcomeMessage
 
 //HomePage
 app.get('/', function(request, response) {
@@ -72,8 +72,7 @@ function findingWords(term){
 }
 
 app.get("/message/latest", function(request, response){
-  var myLatest= messages.slice(-4, 1);
-  response.json(myLatest);
+  response.json(messages.slice(messages.length-10, messages.length));
 });
 
 

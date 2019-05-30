@@ -61,6 +61,7 @@ app.delete("/delete/:id?", function (req, res) {
 
 
 app.get("/message/search", function(request, response) {
+  ///message/search?term=belly
   let term = request.query.term;  
   response.send(findingWords(term));
 });
@@ -70,7 +71,12 @@ function findingWords(term){
   return welcomeMessage.filter(message => message.text.toLowerCase().includes(loweredCasedWord));
 }
 
-
+app.get("/messages/latest", function(req, res){
+  
+  var fruits = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"];
+  var myBest = fruits.slice(fruits.length -10 ,fruits.length+1);
+  res.send(myBest)
+})
 
 
 

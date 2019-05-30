@@ -72,16 +72,9 @@ function findingWords(term){
 }
 
 app.get("/message/latest", function(request, response){
-   var myLatest= messages.slice(()messages.length/2), messages.length+1);
+  var myLatest= messages.slice(-4, 1);
   response.json(myLatest);
 });
-
-function returnLatest(myLatest){
-  return myLatest= welcomeMessage.slice(welcomeMessage.length-10 ,welcomeMessage.length+1);
-  
-}
-
-
 
 
 app.listen(process.env.PORT);

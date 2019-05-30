@@ -72,11 +72,16 @@ function findingWords(term){
 }
 
 app.get("/messages/latest", function(req, res){
+  var myLatest
+  myLatest = messages.slice(messages.length-10 ,messages.length+1);
+  console.log(welcomeMessage);
   
-  var fruits = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"];
-  var myBest = fruits.slice(fruits.length -10 ,fruits.length+1);
-  res.send(myBest)
+  res.json(welcomeMessage)
 })
+function returnLatest(myLatest){
+  return myLatest= welcomeMessage.slice(welcomeMessage.length-10 ,welcomeMessage.length+1);
+  
+}
 
 
 

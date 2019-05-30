@@ -71,13 +71,11 @@ function findingWords(term){
   return welcomeMessage.filter(message => message.text.toLowerCase().includes(loweredCasedWord));
 }
 
-app.get("/messages/latest", function(req, res){
-  var myLatest
-  myLatest = messages.slice(messages.length-10 ,messages.length+1);
-  console.log(welcomeMessage);
-  
-  res.json(welcomeMessage)
-})
+app.get("/message/latest", function(request, response){
+   var myLatest= messages.slice(()messages.length/2), messages.length+1);
+  response.json(myLatest);
+});
+
 function returnLatest(myLatest){
   return myLatest= welcomeMessage.slice(welcomeMessage.length-10 ,welcomeMessage.length+1);
   

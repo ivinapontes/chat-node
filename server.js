@@ -75,26 +75,29 @@ app.get("/message/latest", function(request, response){
   response.json(messages.slice(messages.length-10, messages.length));
 });
 
-app.put('/message/edit', function (req,res){
-  // let id = parseInt(req.params.id);
-  console.log(req.body)
-  let name = req.body.from
-  let text = req.body.text
-  // console.log(name, text)
-  // let message = messages.find(r => r.id === id)
-  // console.log(message)
-  
-  // if(message){
-  //    message.from = name;
-  //   message.text=text
-  //   res.json(message); 
-    // console.log(message)
+app.put('/message/edit/:id?', function (req,res){
+  let id = parseInt(req.params.id);
+  let message = messages.find(r => r.id === id)
+  console.log(req.queryl)
+//   if(message){
+  console.log(message.text)
+//     res.json(message); 
 
-    
 //   } else {   
 //      res.sendStatus(404);
 //   }
 })
+
+
+
+ const existingRecipe = recipes.find(r => r.id === id);  
+if(existingRecipe){   
+  const newRecipe = request.body;    
+  existingRecipe.title = newRecipe.title   
+  existingRecipe.ingredients = newRecipe.ingredients 
+  response.sendStatus(204); 
+} else {  
+  response.sendStatus(404);  } });
 
 
 app.listen(process.env.PORT);

@@ -75,5 +75,16 @@ app.get("/message/latest", function(request, response){
   response.json(messages.slice(messages.length-10, messages.length));
 });
 
+app.put('/message/edit/:id?', function (req,res){
+  let id = parseInt(req.params.id);
+  const message = messages.find(r => r.id === id)
+  console.log(message)
+  if(message){
+   res.json(message);
+  } else {   
+   res.sendStatus(404);
+  }
+})
+
 
 app.listen(process.env.PORT);

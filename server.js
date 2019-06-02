@@ -79,11 +79,10 @@ app.put('/message/edit/:id?', function (req,res){
   let id = parseInt(req.params.id);
   let message = messages.find(r => r.id === id)
   console.log(message)
+  
   if(message){
-    
-  message.text = message.text;
-  message.from = message.from;
-     res.json(message);
+     
+    res.json(message);
   } else {   
      res.sendStatus(404);
   }

@@ -77,27 +77,17 @@ app.get("/message/latest", function(request, response){
 
 app.put('/message/edit/:id?', function (req,res){
   let id = parseInt(req.params.id);
-  let message = messages.find(r => r.id === id)
-  console.log(req.queryl)
-//   if(message){
-  console.log(message.text)
-//     res.json(message); 
+  let existingMessage = messages.find(r => r.id === id);
 
-//   } else {   
-//      res.sendStatus(404);
-//   }
-})
-
-
-
- const existingRecipe = recipes.find(r => r.id === id);  
-if(existingRecipe){   
-  const newRecipe = request.body;    
-  existingRecipe.title = newRecipe.title   
-  existingRecipe.ingredients = newRecipe.ingredients 
-  response.sendStatus(204); 
+  if(existingMessage){   
+    const newMessage = req.body;    
+    existingMessage.title = newMessage.title   
+    existingMessage.ingredients = newMessage.ingredients 
+    res.sendStatus(204); 
 } else {  
-  response.sendStatus(404);  } });
+  res.sendStatus(404);  
+}
+});
 
 
 app.listen(process.env.PORT);

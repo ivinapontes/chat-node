@@ -77,12 +77,15 @@ app.get("/message/latest", function(request, response){
 
 app.put('/message/edit/:id?', function (req,res){
   let id = parseInt(req.params.id);
-  const message = messages.find(r => r.id === id)
+  let message = messages.find(r => r.id === id)
   console.log(message)
   if(message){
-   res.json(message);
+    
+  message.text = message.text;
+  message.from = message.from;
+     res.json(message);
   } else {   
-   res.sendStatus(404);
+     res.sendStatus(404);
   }
 })
 

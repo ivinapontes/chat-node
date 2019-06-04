@@ -77,16 +77,13 @@ app.get("/message/latest", function(request, response){
 
 app.put('/message/edit/:id?', function (req,res){
   let id = parseInt(req.params.id);
-  
   const newMessage = req.body;  
   let existingMessage = messages.find(r => r.id === id);
-
   if(existingMessage){     
-    
-    updateMessage(existingMessage, newMessage);
-    res.json(existingMessage);
-
-} else {  
+     orig.text = changes.text;
+  orig.from = changes.from;
+    res.json(newMessage);
+  } else {  
   res.sendStatus(404);  
 }
 });

@@ -14,6 +14,7 @@ const welcomeMessage = require("./messages.json");
 //We will start with one message in the array.
 //Note: messages will be lost when Glitch restarts our server.
 const messages = welcomeMessage
+let nextIndex = 15;
 
 //HomePage
 app.get('/', function(request, response) {
@@ -28,8 +29,7 @@ app.get("/messages", function(request, response){
 //Post messages
 app.post("/messages", function(request, response){
   let message = request.body;
-  let id = messages.id;
-  id = messages.length+1;
+  message.id = nextIndex++;
   if (!message.text || !message.from){
     response.status(400).send('missing text or name')
     } else {
@@ -77,17 +77,38 @@ app.get("/message/latest", function(request, response){
 
 app.put('/message/edit/:id?', function (req,res){
   let id = parseInt(req.params.id);
+  
+  const newMessage = req.body;  
   let existingMessage = messages.find(r => r.id === id);
 
-  if(existingMessage){   
-    const newMessage = req.body;    
-    existingMessage.title = newMessage.title   
-    existingMessage.ingredients = newMessage.ingredients 
-    res.sendStatus(204); 
+  if(existingMessage){     
+    
+    updateMessage(existingMessage, newMessage);
+    res.json(existingMessage);
+
 } else {  
   res.sendStatus(404);  
 }
 });
+
+function updateMessage(orig, changes) {
+  orig.text = changes.text;
+  orig.from = changes.from;
+}
+
+// app.put("/recipes/:id", function(request, response) {
+//   const id = parseInt(request.params.id);
+
+//   const recipeSubmitted = request.body;
+//   const existingRecipe = recipes.find(r => id === r.id);
+//   if (existingRecipe) {
+//     updateRecipeInPlace(existingRecipe, recipeSubmitted);
+//     response.json(existingRecipe);
+//   } else {
+//     response.sendStatus(404);
+//   }
+// });
+
 
 
 app.listen(process.env.PORT);

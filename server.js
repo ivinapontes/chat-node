@@ -47,12 +47,16 @@ app.get("/messages/:id?", function(request, response){
 
 //"Delete" message by Id
 app.delete("/delete/:id?", function (req, res) {
-  let id = req.params.id;  
-  var findMessageByIdAndFilter = welcomeMessage.filter(message => message.id != id);
-  res.json(findMessageByIdAndFilter)
+  let id = parseInt(req.params.id);  
+  var indexToDelete = welcomeMessage.findIndex(item => id === item.id);
+  if (indexToDelete>=0){
+    welcomeMessage.splice(indexToDelete, 1);
+    res.sendStatus(204);   
+  } else {
+    
+    res.sendStatus(404);
+  }
 })
-
-
 
 // For this level your API must also allow a client to:
 
@@ -78,20 +82,16 @@ app.get("/message/latest", function(request, response){
 app.put('/message/edit/:id?', function (req,res){
   let id = parseInt(req.params.id);
   const newMessage = req.body;  
-  let existingMessage = messages.find(r => r.id === id);
+  const existingMessage = messages.find(r => r.id === id);
   if(existingMessage){     
-     orig.text = changes.text;
-  orig.from = changes.from;
-    res.json(newMessage);
+    existingMessage.text = newMessage.text;
+    existingMessage.from = newMessage.from;
+    res.json(existingMessage).sendStatus(204);
   } else {  
   res.sendStatus(404);  
 }
 });
 
-function updateMessage(orig, changes) {
-  orig.text = changes.text;
-  orig.from = changes.from;
-}
 
 // app.put("/recipes/:id", function(request, response) {
 //   const id = parseInt(request.params.id);

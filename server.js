@@ -10,11 +10,8 @@ app.use(express.urlencoded({ extended: false }))
 
 const welcomeMessage = require("./messages.json");
 
-//This array is our "data store".
-//We will start with one message in the array.
-//Note: messages will be lost when Glitch restarts our server.
 const messages = welcomeMessage
-let nextIndex = 15;
+let nextIndex = messages.length;
 
 //HomePage
 app.get('/', function(request, response) {
@@ -52,17 +49,10 @@ app.delete("/delete/:id?", function (req, res) {
   if (indexToDelete>=0){
     welcomeMessage.splice(indexToDelete, 1);
     res.sendStatus(204);   
-  } else {
-    
+  } else {  
     res.sendStatus(404);
   }
 })
-
-// For this level your API must also allow a client to:
-
-// Read only messages whose text contains a given substring: /messages/search?text=express
-// Read only the most recent 10 messages: /messages/latest
-
 
 app.get("/message/search", function(request, response) {
   ///message/search?term=belly
@@ -91,21 +81,6 @@ app.put('/message/edit/:id?', function (req,res){
   res.sendStatus(404);  
 }
 });
-
-
-// app.put("/recipes/:id", function(request, response) {
-//   const id = parseInt(request.params.id);
-
-//   const recipeSubmitted = request.body;
-//   const existingRecipe = recipes.find(r => id === r.id);
-//   if (existingRecipe) {
-//     updateRecipeInPlace(existingRecipe, recipeSubmitted);
-//     response.json(existingRecipe);
-//   } else {
-//     response.sendStatus(404);
-//   }
-// });
-
 
 
 app.listen(process.env.PORT);
